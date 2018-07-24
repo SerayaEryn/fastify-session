@@ -2,11 +2,11 @@
   "name": "fastify-session",
   "version": "1.1.0",
   "description": "a session plugin for fastify",
-  "main": "index.js",
+  "main": "lib/fastifySession.js",
   "scripts": {
     "unit": "tap test/*.test.js",
     "test": "npm run lint && npm run unit",
-    "lint": "./node_modules/eslint/bin/eslint.js index.js lib/* test/*",
+    "lint": "./node_modules/eslint/bin/eslint.js lib/* test/*",
     "coveralls": "npm run unit --  --cov",
     "coverage-report": "npm run coveralls && tap --coverage-report=lcov"
   },
@@ -19,7 +19,7 @@
   "dependencies": {
     "cookie-signature": "^1.0.6",
     "fastify-plugin": "^1.0.0",
-    "uid-safe": "^2.1.5"
+    "hyperid": "^1.4.1"
   },
   "engines": {
     "node": ">= 6.0.0"
