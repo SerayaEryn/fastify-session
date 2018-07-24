@@ -49,6 +49,7 @@ test('should set session non secure cookie', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -80,6 +81,7 @@ test('should set session non HttpOnly cookie', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -115,6 +117,7 @@ test('should set session cookie with expires', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -151,6 +154,7 @@ test('should set session cookie with expires if maxAge', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -187,6 +191,7 @@ test('should set session cookie with maxAge', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -222,6 +227,7 @@ test('should set session cookie with sameSite', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -257,6 +263,7 @@ test('should set session another path in cookie', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/a/test/path', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -290,6 +297,7 @@ test('should set session cookie', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -335,6 +343,7 @@ test('should set session cookie using the specified cookie name', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -377,6 +386,7 @@ test('should set session cookie using the specified cookie name', t => {
   }, '>=0.30.2'));
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -461,6 +471,7 @@ test('should set new session cookie if expired', t => {
   }, '>=0.30.2'));
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -495,6 +506,7 @@ test('should return new session cookie if does not exist in store', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -571,6 +583,7 @@ test('should create new session if cookie contains invalid session', t => {
   }, '>=0.30.2'));
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {

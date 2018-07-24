@@ -21,6 +21,7 @@ test('should set session cookie', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -118,6 +119,7 @@ test('should not set session cookie is request is not secure and x-forwarded-pro
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {

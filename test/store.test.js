@@ -59,6 +59,7 @@ test('should pass error on store.set to done', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
@@ -108,6 +109,7 @@ test('should create new session if ENOENT error on store.get', t => {
   fastify.register(fastifyCookie);
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   });
   fastify.listen(0, err => {
@@ -200,6 +202,7 @@ test('should set new session cookie if expired', t => {
   }, '>=0.30.2'));
   fastify.register(fastifySession, options);
   fastify.get('/', (request, reply) => {
+    request.session.test = {};
     reply.send(200);
   })
   fastify.listen(0, err => {
