@@ -19,7 +19,7 @@
   "dependencies": {
     "cookie-signature": "^1.0.6",
     "fastify-plugin": "^1.0.0",
-    "hyperid": "^1.4.1"
+    "hyperid": "^2.0.0"
   },
   "engines": {
     "node": ">= 6.0.0"
