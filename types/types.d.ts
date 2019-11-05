@@ -29,6 +29,7 @@ declare module 'fastify' {
 declare interface FastifySessionPlugin<HttpServer, HttpRequest, HttpResponse>
   extends fastify.Plugin<HttpServer, HttpRequest, HttpResponse, FastifySessionPlugin.Options> {
   Store: { new (options?: any): FastifySessionPlugin.SessionStore };
+  CookieSecretsStore: { new (initStore: string | string[]): FastifySessionPlugin.CookieSecretsStore };
 }
 
 declare namespace FastifySessionPlugin {
@@ -38,9 +39,16 @@ declare namespace FastifySessionPlugin {
     destroy(sessionId: string, callback: (err?: Error) => void): void;
   }
 
+  interface CookieSecretsStore {
+    addSigning(key: string): void;
+    addUnsigning(key: string): void;
+    contains(key: string): boolean;
+    remove(key: string): void;
+  }
+
   interface Options {
     /** The secret used to sign the cookie. Must have length 32 or greater. */
-    secret: string;
+    secret: string | CookieSecretsStore;
     /** The name of the session cookie. Defaults to `sessionId`. */
     cookieName?: string;
     /** The options object used to generate the `Set-Cookie` header of the session cookie. */
