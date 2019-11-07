@@ -33,8 +33,11 @@ declare interface FastifySessionPlugin<HttpServer, HttpRequest, HttpResponse>
 
 declare namespace FastifySessionPlugin {
   interface SessionStore {
+    set(sessionId: string, request: fastify.FastifyRequest, session: any, callback: (err?: Error) => void): void;
     set(sessionId: string, session: any, callback: (err?: Error) => void): void;
+    get(sessionId: string, request: fastify.FastifyRequest, callback: (err?: Error, session?: any) => void): void;
     get(sessionId: string, callback: (err?: Error, session?: any) => void): void;
+    destroy(sessionId: string, request: fastify.FastifyRequest, callback: (err?: Error) => void): void;
     destroy(sessionId: string, callback: (err?: Error) => void): void;
   }
 
