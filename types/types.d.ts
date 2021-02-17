@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-import { FastifyPlugin } from "fastify";
+import { FastifyPluginCallback } from "fastify";
 
 declare module "fastify" {
   interface FastifyRequest {
@@ -85,6 +85,7 @@ declare namespace FastifySessionPlugin {
 }
 
 export class MemoryStore implements FastifySessionPlugin.SessionStore {
+  constructor(map?: Map<string, any>);
   set(sessionId: string, session: any, callback: (err?: Error) => void): void;
   get(
     sessionId: string,
@@ -93,6 +94,8 @@ export class MemoryStore implements FastifySessionPlugin.SessionStore {
   destroy(sessionId: string, callback: (err?: Error) => void): void;
 }
 
-declare const FastifySessionPlugin: FastifyPlugin<FastifySessionPlugin.Options>;
+export const Store: MemoryStore;
+
+declare const FastifySessionPlugin: FastifyPluginCallback<FastifySessionPlugin.Options>;
 
 export default FastifySessionPlugin;
